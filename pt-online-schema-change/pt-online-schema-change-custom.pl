@@ -11466,6 +11466,18 @@ sub create_triggers {
        }
    }
 
+   #by silver
+   if($o->has('pause-before-data-copy') && defined $o->get('pause-before-data-copy')){
+        my $user_input;
+        do{
+           print "********************************************************\n";
+           print " Pause before data copy. Enter [yes] when you are done.\n";
+           print "********************************************************\n";
+           print ": ";
+           chomp ($user_input = <STDIN>);
+        }while(!($user_input =~ /yes/i));
+   }
+
    my @trigger_names;
 
    foreach my $trigger_info ( @$triggers_info ) {
@@ -11505,18 +11517,6 @@ sub create_triggers {
 
    if ( $o->get('execute') ) {
       print ts("Created triggers OK.\n");
-   }
-   
-   #by silver
-   if($o->has('pause-before-data-copy') && defined $o->get('pause-before-data-copy')){
-        my $user_input;
-        do{
-	   print "********************************************************\n";
-           print " Pause before data copy. Enter [yes] when you are done.\n";
-	   print "********************************************************\n";
-	   print ": ";
-           chomp ($user_input = <STDIN>);
-        }while(!($user_input =~ /yes/i));
    }
 
    return @trigger_names;
@@ -12847,7 +12847,6 @@ short form: -q
 Do not print messages to STDOUT (disables L<"--progress">).
 Errors and warnings are still printed to STDERR.
 
-#by silver
 =item --pause-before-data-copy
 
 Pause before data copy into _[table]_new
