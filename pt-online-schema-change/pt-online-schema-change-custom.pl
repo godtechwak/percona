@@ -11471,7 +11471,7 @@ sub create_triggers {
         my $user_input;
         do{
            print "********************************************************\n";
-           print " Pause before data copy. Enter [yes] when you are done.\n";
+           print " Pause before data copy. Enter [go] when you are done.\n";
            print "********************************************************\n";
            print ": ";
            chomp ($user_input = <STDIN>);
@@ -12847,6 +12847,7 @@ short form: -q
 Do not print messages to STDOUT (disables L<"--progress">).
 Errors and warnings are still printed to STDERR.
 
+#by silver
 =item --pause-before-data-copy
 
 Pause before data copy into _[table]_new
