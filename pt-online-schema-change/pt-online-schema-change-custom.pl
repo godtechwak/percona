@@ -11475,7 +11475,7 @@ sub create_triggers {
            print "********************************************************\n";
            print ": ";
            chomp ($user_input = <STDIN>);
-        }while(!($user_input =~ /yes/i));
+        }while(!($user_input =~ /go/i));
    }
 
    my @trigger_names;
